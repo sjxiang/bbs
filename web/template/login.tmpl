@@ -1,0 +1,29 @@
+
+{{ template "layout.tmpl" .}}
+
+{{ define "content" }}
+
+    <main>
+        <h1>登录</h1>
+
+        <form action="/login" method="POST">
+            <div>
+                <label for="email">邮箱</label>
+                <input type="email" name="email" id="email" placeholder="rose@gmail.com" required>
+            </div>
+            
+            <div>
+                <label for="username">用户名</label>
+                <input type="text" name="username" id="username" placeholder="rose" required>
+            </div>
+
+            <button>Login</button>
+        
+        </form>
+
+    </main>
+
+{{ end }}
+
+
+
