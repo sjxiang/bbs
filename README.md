@@ -1,9 +1,7 @@
-docker run -d           --env COCKROACH_DATABASE=bbs           --env COCKROACH_USER=root           --env COCKROACH_PASSWORD=123456           --name=roach-single           -p 26257:26257 -p 8080:8080           -v "roach-single:/cockroach/cockroach-data"                  cockroachdb/cockroach:latest start-single-node
 
 
-./cockroach sql --insecure --host=localhost:26257
-docker exec -it 1e956c939715 bash
-
+$ docker exec -it 1e956c939715 bash
+$ ./cockroach sql --insecure --host=localhost:26257
 
 
 
@@ -29,4 +27,9 @@ docker exec -it 1e956c939715 bash
 评论 Comments
 
 
-前端 https://watercss.kognise.dev/
+前端 
+
+嵌入 bootstrap https://watercss.kognise.dev/
+
+
+$ sqlc generate

@@ -1,6 +1,7 @@
 package web
 
 import (
+	"fmt"
 	"net/http"
 	"net/url"
 
@@ -25,7 +26,9 @@ func (h *Handler) showLogin(w http.ResponseWriter, r *http.Request) {
 	h.renderLogin(w, loginData{}, http.StatusOK)
 }
 
+
 func (h *Handler) login(w http.ResponseWriter, r *http.Request) {
+	
 	if err := r.ParseForm(); err != nil {
 		http.Error(w, "bad request", http.StatusBadRequest)
 		return
@@ -37,7 +40,16 @@ func (h *Handler) login(w http.ResponseWriter, r *http.Request) {
 		Username: formStr(r.PostForm, "username"),
 	}
 
-	h.Service.Login(ctx, input)
+	user , err := h.Service.Login(ctx, input)
+	if err != nil {
+		h.Logger.Printf("could not login: %v\n", err)
+		http.Error(w, fmt.Sprintf("internal server error"), http.StatusInternalServerError)
+		return 
+	}
+
+
+
+	http.Redirect(w, r, "/", http.StatusFound)
 }
 
 

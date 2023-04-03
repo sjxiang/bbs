@@ -6,16 +6,18 @@ import (
 	"sync"
 
 	"github.com/gorilla/mux"
+	"github.com/golangcollege/sessions"
 	"github.com/sjxiang/bbs"
 )
 
 
 type Handler struct {
-	Logger  log.Logger	
-	handler http.Handler
-	once    sync.Once
-
-	Service bbs.Service
+	Logger     *log.Logger	
+	Service    *bbs.Service
+	SessionKey []byte
+	once       sync.Once
+	handler    http.Handler
+	Session    
 }
 
 func (h *Handler) init() {

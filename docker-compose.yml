@@ -9,6 +9,10 @@ services:
     restart: "no"
     volumes:
       - data:/var/lib/cockroach
+    environment:
+      COCKROACH_DATABASE: bbs
+      COCKROACH_USER: root
+      COCKROACH_PASSWORD: 123456
     expose:
       - "8080"
       - "26257"
