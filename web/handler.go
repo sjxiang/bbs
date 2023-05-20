@@ -7,6 +7,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/golangcollege/sessions"
+	"github.com/gorilla/sessions"
 	"github.com/sjxiang/bbs"
 )
 

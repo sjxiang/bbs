@@ -29,7 +29,20 @@ $ ./cockroach sql --insecure --host=localhost:26257
 
 前端 
 
-嵌入 bootstrap https://watercss.kognise.dev/
+嵌入 Bootstrap https://watercss.kognise.dev/
 
 
 $ sqlc generate
+
+
+register
+
+login
+
+signup
+signin
+signout
+
+注册
+签到
+签出
